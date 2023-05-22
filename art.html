@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Self Portrait</title>
+    <style>
+      body {
+        font-family: "Montserrat", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom, #f8f8f8, #d8d8d8);
+      }
+
+      header {
+        background-color: #333;
+        padding: 20px;
+        text-align: center;
+        font-family: "Gill Sans", sans-serif;
+        color: #fff;
+      }
+
+      main {
+        transition: margin-left 0.5s;
+        padding: 20px;
+        margin-left: 0;
+      }
+
+      .open-nav #main {
+        margin-left: 250px;
+      }
+
+      .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+      }
+
+      #mySidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 18px;
+        font-family: "Optima", "Segoe", "Segoe UI", "Candara", "Calibri", Arial,
+          sans-serif;
+        color: #d8dee3;
+        display: block;
+        text-align: center;
+      }
+
+      .sidenav a:hover {
+        color: #f1f1f1;
+      }
+
+      @media screen and (max-height: 450px) {
+        .sidenav {
+          padding-top: 15px;
+        }
+        .sidenav a {
+          font-size: 18px;
+        }
+      }
+
+      .page {
+        padding: 20px;
+        background-color: #fff;
+        color: #333;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+      }
+
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .artwork {
+        margin: 20px;
+        text-align: center;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .artwork:hover {
+        border-color: #999;
+      }
+
+      .artwork img {
+        width: 80%;
+        max-height: 80vh;
+        object-fit: contain;
+        border-radius: 5px;
+      }
+
+      .artwork p {
+        margin-top: 10px;
+        font-style: italic;
+        color: #777;
+        font-family: "Montserrat", Arial, sans-serif;
+      }
+
+      #main {
+        transition: margin-left 0.5s;
+        padding: 20px;
+        margin-left: 0;
+      }
+
+      #artworks {
+        transition: margin-left 0.5s;
+        padding: 20px;
+        margin-left: 0;
+      }
+
+      .open-nav #artworks {
+        margin-left: 250px;
+      }
+
+      #netArtSubMenu a,
+      #artReimagedSubMenu a {
+        font-size: 14px;
+        color: #777;
+      }
+
+      #netArtSubMenu a:hover,
+      #artReimagedSubMenu a:hover {
+        color: #999;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+        >&times;</a
+      >
+      <center>
+        <a href="index.html">Home</a>
+        <a href="glitch.html">Glitch Art</a>
+        <a href="meme.html">Meme Mashup</a>
+        <a href="minecraft.html">Minecraft Art</a>
+        <a href="3d.html">3D Print</a>
+        <a href="art.html">Self Portrait</a>
+        <div>
+          <a href="javascript:void(0)" onclick="toggleSubMenu()">Net Art</a>
+          <div id="netArtSubMenu" style="display: none">
+            <a href="arcane.html">Arcane</a>
+            <a href="fall.html">Fall</a>
+            <a href="fine.html">War</a>
+            <a href="vi.html">Fear</a>
+            <a href="creepy.html">Insanity</a>
+            <a href="crystal.html">Discover</a>
+            <a href="ekko.html">Fight</a>
+            <a href="jayce.html">Intimidation</a>
+            <a href="mel.html">Wealth</a>
+            <a href="powder.html">Jump</a>
+            <a href="sky.html">Peace</a>
+          </div>
+        </div>
+        <div>
+          <a href="javascript:void(0)" onclick="toggleSubMenu2()"
+            >Art Reimagined</a
+          >
+          <div id="artReimagedSubMenu" style="display: none">
+            <a href="final.html">About</a>
+            <a href="ivan.html">Ivan the Terrible</a>
+            <a href="raft.html">The Raft of Medusa</a>
+            <a href="adam.html">The Creation of Adam</a>
+            <a href="star.html">Starry Night</a>
+            <a href="les.html">Les Demoiselles</a>
+            <a href="tilled.html">The Tilled Field</a>
+            <a href="calling.html">The Calling of Saint Matthew</a>
+          </div>
+        </div>
+      </center>
+    </div>
+
+    <div id="main">
+      <span style="font-size: 30px; cursor: pointer" onclick="openNav()"
+        >&#9776;</span
+      >
+    </div>
+
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("artworks").style.marginLeft = "250px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("artworks").style.marginLeft = "0";
+      }
+
+      function toggleSubMenu() {
+        var subMenu = document.getElementById("netArtSubMenu");
+        if (subMenu.style.display === "" || subMenu.style.display === "none") {
+          subMenu.style.display = "block";
+        } else {
+          subMenu.style.display = "none";
+        }
+      }
+
+      function toggleSubMenu2() {
+        var subMenu = document.getElementById("artReimagedSubMenu");
+        if (subMenu.style.display === "" || subMenu.style.display === "none") {
+          subMenu.style.display = "block";
+        } else {
+          subMenu.style.display = "none";
+        }
+      }
+    </script>
+
+    <div id="artworks" class="page">
+      <header>
+        <h2 style="font-family: 'Gill Sans', sans-serif">
+          p5.js Self Portrait
+        </h2>
+      </header>
+
+      <div class="gallery">
+        <div class="artwork">
+          <a href="art.jpg" target="_blank">
+            <img src="art.jpg" alt="Meme" />
+          </a>
+          <p>
+            I drew myself doing p5.js. I tried to do this wiht as few shapes as
+            possible. The hardest part about it was getting the curly hair.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
